@@ -1,0 +1,101 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="content3" id="contentJump">
+    <section class="filter">
+        <div class="row">
+            <div class='col'>
+                <select id='tool_filter' class="selectpicker" name="tool[]" multiple="multiple" data-live-search="true" v-on:change="filter()">
+                    <option value='' selected style='display: none;'>Filter for tools and resources</option>
+                    {% for tool in tools %}
+                    <option value='{{tool}}'>{{ tool }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class='col-sm-3'>
+                <span>Contains </span>
+                <select id='filter_type' v-on:change="filter()">
+                    <option value='and' selected>all</option>
+                    <option value='or'>at least one</option>
+                </select>
+                <span>selected filters</span>
+            </div>
+        </div>
+    </section>
+    {% for project in project_list %}
+    <section class="{{','.join(project.tools)}}">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="position"><i class="fas fa-angle-right"></i> {{ project.project_name }}</h3>
+            </div>
+            <div class="offset-sm-3 col-sm-3 date">
+                {% if project.date_end == None %}
+                <h3>{{ project.date_start }}</h3>
+                {% else %}
+                <h3>{{ project.date_start }} – {{ project.date_end }}</h3>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Status</strong>: {{ project.project_status }}</p>
+                <p><strong>Project Type</strong>: {{ project.project_type }}</p>
+                <h4>Description:</h4>
+                <p>{{ project.project_description }}</p>
+                <h4>Goals:</h4>
+                <ul>
+                    {% for goal in project.goals %}
+                    <li>{{ goal }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Tools & Ressources</h4>
+                <ul>
+                    {% for tool in project.tools %}
+                    <li>{{ tool }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Pictures:</h4>
+                {% if project.image_files == None %}
+                <p>Sorry, there are no pictures available for this project.</p>
+                {% else %}
+                {% for pic in project.image_files %}
+                <a href='../static/image/{{ pic }}' target="_blank"><img src='../static/image/{{ pic }}'
+                        height="200" /></a>
+                {% endfor %}
+                {% endif %}
+                <h4>Project Links:</h4>
+                <ul>
+                    {% if project.links == None %}
+                    <li>No links available for this project</li>
+                    {% else %}
+                    {% for link in project.links %}
+                    <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+</div>
+{% endblock content %}
+{% block scripts %}
+<script>
+    // Placeholder for filter
+    document.getElementById('tool_filter').addEventListener('change', (event) => {
+        var dropdown = document.getElementById('tool_filter');
+        counter = 0;
+        for (var i = 0; i < dropdown.options.length; i++) {
+            if (dropdown.options[i].selected == true) {
+                counter += 1;
+            }
+        };
+        if (counter == 0) {
+            dropdown.options[0].selected = true;
+        }
+        else {
+            dropdown.options[0].selected = false;
+        }
+    });
+    //Placeholder
+</script>
+{% endblock scripts %}

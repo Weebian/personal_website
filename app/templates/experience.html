@@ -1,0 +1,91 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="content3" id="contentJump">
+    <section class="filter">
+        <div class="row">
+            <div class='col'>
+                <select id='tool_filter' class="selectpicker" name="tool[]" multiple="multiple" data-live-search="true" v-on:change="filter()">
+                    <option value='' selected style='display: none;'>Filter for tools and resources</option>
+                    {% for tool in tools %}
+                    <option value='{{tool}}'>{{ tool }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class='col-sm-3'>
+                <span>Contains </span>
+                <select id='filter_type' v-on:change="filter()">
+                    <option value='and' selected>all</option>
+                    <option value='or'>at least one</option>
+                </select>
+                <span>selected filters</span>
+            </div>
+        </div>
+    </section>
+    {% for job in job_list %}
+    <section class="{{','.join(job.tools)}}">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 class="position"><i class="fas fa-angle-right"></i> {{ job.job_title }}</h3>
+            </div>
+            <div class="offset-sm-3 col-sm-3 date">
+                {% if job.date_end == None %}
+                <h3>{{ job.date_start }}</h3>
+                {% else %}
+                <h3>{{ job.date_start }} – {{ job.date_end }}</h3>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{ job.work_location }}</p>
+                <h4>Description:</h4>
+                <p>{{ job.job_description }}</p>
+                <h4>Duties:</h4>
+                <ul>
+                    {% for duty in job.duties %}
+                    <li>{{ duty }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Tools & Ressources</h4>
+                <ul>
+                    {% for tool in job.tools %}
+                    <li>{{ tool }}</li>
+                    {% endfor %}
+                </ul>
+                <h4>Associated Links:</h4>
+                <ul>
+                    {% if job.links == None %}
+                    <li>No associated links for this experience</li>
+                    {% else %}
+                    {% for link in job.links %}
+                    <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+</div>
+{% endblock content %}
+{% block scripts %}
+<script>
+    // Placeholder for filter
+    document.getElementById('tool_filter').addEventListener('change', (event) =>{
+        var dropdown = document.getElementById('tool_filter');
+        counter = 0;
+        for(var i = 0; i < dropdown.options.length; i++){
+            if(dropdown.options[i].selected == true){
+                counter += 1; 
+            }
+        };
+        if(counter == 0){
+            dropdown.options[0].selected = true;
+        }
+        else{
+            dropdown.options[0].selected = false;
+        }
+    });
+    //Placeholder
+</script>
+{% endblock scripts %}

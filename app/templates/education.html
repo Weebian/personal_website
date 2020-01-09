@@ -1,0 +1,73 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="content3" id="contentJump">
+    <section>
+        <h2><i class="fas fa-angle-right"></i> Current Courses</h2>
+        {% if current_empty %}
+        {{ current_empty }}
+        <p>Currently in co-op</p>
+        {% else %}
+        {% for course in current_list %}
+        <div>
+            <p><i class="fas fa-angle-right"></i> <strong>{{ course.course_name }}</strong></p>
+            <p>Course Objectives:
+                <ul>
+                    {% for objective in course.course_objective %}
+                    <li>{{ objective}}</li>
+                    {% endfor %}
+                </ul>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </section>
+    <section class="content">
+        <h2><i class="fas fa-angle-right"></i> Completed Courses</h2>
+        <div class="accordion">
+            {% for term in terms %}
+            <h3 style="font-size: 20px;" active>{{ term }}<i class="far fa-folder" id="{{ 'folder' + terms.index(term)|string }}"></i></h3>
+            <div>
+                {% for course in course_list %}
+                {% if course.term == term %}
+                <p><i class="fas fa-angle-right"></i> <strong style="text-decoration: underline;">{{ course.course_name }}</strong><br />Resulting
+                    Grade: {{ course.grade }}
+                    <p>Course Objectives:
+                        <ul>
+                            {% for objective in course.course_objective %}
+                            {% if '<ol>' in objective %}
+                            <li>
+                                {{ objective.split('<ol>')[0] }}
+                                <ol>
+                                    {% for sub_list in objective[:-5].split('<ol>')[1].split('<li>')[1:] %}
+                                    <li>{{sub_list[:-5]}}</li>
+                                    {% endfor %}
+                                </ol>
+                            </li>
+                            {% elif '<ul>' in objective %}
+                            <li>
+                            {{ objective.split('<ul>')[0] }}
+                                <ul>
+                                    {% for sub_list in objective[:-5].split('<ul>')[1].split('<li>')[1:] %}
+                                    <li>{{sub_list[:-5]}}</li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% else %}
+                            <li>{{ objective }}</li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </p>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ url_for('static', filename='helper/accordian.js') }}" type="text/javascript"></script>
+{% endblock scripts %}

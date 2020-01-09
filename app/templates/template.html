@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <!-- META -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="education" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, private" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    <!--Title-->
+    <title>
+        {{ title }}
+    </title>
+    <!--Tab icon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='image/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='image/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='image/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{ url_for('static', filename='image/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='image/safari-pinned-tab.svg')}}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <nav class="navBar">
+        <p>Hoang Xuan Bui</p>
+        <button class="menuButton btn" type="button"><i class="fas fa-bars"></i></button>
+        <div class="menuItems">
+            <a href="/" class="{% if 'Home' in title %} active {% endif %}">Home</a>
+            <a href="/experience" class="{% if 'Experience' in title %} active {% endif %}">Work Experience</a>
+            <a href="/project" class="{% if 'Project' in title %} active {% endif %}">Projects</a>
+            <a href="/education" class="{% if 'Education' in title %} active {% endif %}">Education</a>
+            <a href="/skills" class="{% if 'Skills' in title %} active {% endif %}">Skills</a>
+            <a href="/self-studies" class="{% if 'Self-Studies' in title %} active {% endif %}">Self-Studies</a>
+            <a href="/contact" class="{% if 'Contact' in title %} active {% endif %}">Contact</a>
+        </div>
+    </nav>
+    <section class="title-page">
+        <div class='title-content'>
+            <h1>{{ intro }}</h1>
+            <p>{{ message }}</p>
+            <div>
+                <a href='#' v-on:click="scroll('contentJump')" id='jump'
+                    class="jumpButton fas fa-angle-double-down"></a>
+            </div>
+        </div>
+    </section>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <p>Copyright <i class="far fa-copyright"></i> Hoang Xuan Bui</p>
+    </footer>
+</body>
+<!--JS-->
+<!--Vue-->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!--Custom js-->
+<script src="{{ url_for('static', filename='main.js') }}" type="text/javascript"></script>
+{% block scripts %}
+{% endblock scripts %}
+</html>
