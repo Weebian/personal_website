@@ -39,14 +39,14 @@
 
 <body>
     <nav class="navBar">
-        <p>Hoang Xuan Bui</p>
+        <a href="/" style='font-size:24px;' class="name active">Hoang Xuan Bui</a>
         <button class="menuButton btn" type="button"><i class="fas fa-bars"></i></button>
         <div class="menuItems">
             <a href="/" class="{% if 'Home' in title %} active {% endif %}">Home</a>
             <a href="/experience" class="{% if 'Experience' in title %} active {% endif %}">Work Experience</a>
             <a href="/project" class="{% if 'Project' in title %} active {% endif %}">Projects</a>
             <a href="/education" class="{% if 'Education' in title %} active {% endif %}">Education</a>
-            <a href="/skills" class="{% if 'Skills' in title %} active {% endif %}">Skills</a>
+            <a href="/skill" class="{% if 'Skills' in title %} active {% endif %}">Skills and Tools</a>
             <a href="/self-studies" class="{% if 'Self-Studies' in title %} active {% endif %}">Self-Studies</a>
             <a href="/contact" class="{% if 'Contact' in title %} active {% endif %}">Contact</a>
         </div>

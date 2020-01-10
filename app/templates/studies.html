@@ -1,0 +1,12 @@
+{% extends "template.html" %}
+{% block content %}
+<section class="content" id="contentJump">
+    {% for book in book_list %}
+    <h3 class='{{book.tool}}'>{{ book.title }}</h3>
+    <p>
+        By {{ book.authors }}<br/>
+        Link: <a href="{{ book.link }}">{{ book.link }}</a>
+    </p>
+    {% endfor %}
+</section>
+{% endblock content %}

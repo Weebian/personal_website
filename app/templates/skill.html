@@ -1,0 +1,105 @@
+{% extends "template.html" %}
+{% block content %}
+<section class="content" id="contentJump">
+<h3>Communication:</h3>
+<ul>
+    <li>Bilingual - Fluent in English and French</li>
+    <li>Written a Report of Finding from research based on the Phone Payment Entry System for the redevelopment of Brewer Park Recreation Centre</li>
+    <li>Peer tutor for the course “Communication Skills for Engineering” to improve students' oral and written skills</li>
+</ul>
+</section>
+<section class="content">
+    <h3>Technical:</h3>
+    <!--Skills-->
+    <table style="width:95%;">
+        <tr>
+            <th>
+                Language
+            </th>
+            <th>
+                Years’ Experience
+            </th>
+            <th>
+                Skill Level
+            </th>
+        </tr>
+        {% for skill in skill_list %}
+        <tr>
+            <td>
+                {{ skill.name }}
+            </td>
+            <td>
+                {{ skill.experience }}
+            </td>
+            <td>
+                {{ skill.level }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!--Tools-->
+    <h4 style="margin: 15px 0 5px 0; margin-left: 1.5%;">Tools:</h4>
+    <div style="width:30%; display: inline-block; margin-left: 1.5%;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in proficient_tool %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="width:30%; display: inline-block;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Somewhat proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in somewhat_proficient_tool %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="width:30%; display: inline-block;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Non-proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in non_proficient_tool %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <!--OS-->
+    <h4 style="margin: 15px 0 5px 0; margin-left: 1.5%;">Operating System:</h4>
+    <div style="width:30%; display: inline-block; margin-left: 1.5%;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in proficient_OS %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="width:30%; display: inline-block;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Somewhat proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in somewhat_proficient_OS %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="width:30%; display: inline-block;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Non-proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in non_proficient_OS %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endblock content %}

@@ -73,6 +73,12 @@ h2::after{
     width: 90%;
     margin-left: 23px;
 }
+th{
+    border-bottom: 1px solid;
+}
+tr{
+    border-bottom: 1px solid;
+}
 ul{
     list-style-type: square;
     margin-left: 1.5%;
@@ -111,6 +117,20 @@ ul{
     margin-left: 1.5%;
     float: left;
     margin-right: 1.5%;
+}
+.content table{
+    margin-left: 1.5%;
+    margin-top: 10px;
+}
+.content h4{
+    font-size: 18px;
+    margin-left: 1.5%;
+    margin-top: 10px;
+}
+.content h5{
+    font-size: 16px;
+    margin-left: 1.5%;
+    margin-top: 10px;
 }
 .content2{
     text-align: center;
@@ -199,6 +219,9 @@ ul{
 .menuButton:focus{
     outline:none;
     box-shadow: none;
+}
+.name:hover{
+    text-decoration: none;
 }
 .position::after{
     content:'';

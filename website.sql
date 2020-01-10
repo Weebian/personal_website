@@ -8,7 +8,8 @@ DROP TABLE IF EXISTS Project;
 DROP TABLE IF EXISTS Experience;
 DROP TABLE IF EXISTS Education;
 DROP TABLE IF EXISTS Skill;
-DROP TABLE IF EXISTS Hobby;
+DROP TABLE IF EXISTS Tool;
+DROP TABLE IF EXISTS OS;
 
 --CREATE DATABASE TABLES
 --=======================
@@ -43,7 +44,29 @@ CREATE TABLE IF NOT EXISTS Education(
     course_objective TEXT NOT NULL, --course objective
     primary key (term, course_name)
 );
-
+CREATE TABLE IF NOT EXISTS Skill(
+    language_name TEXT NOT NULL, --Skill
+    year_experience TEXT NOT NULL, --number of years of experience
+    skill_level TEXT, --skill level
+    primary key (language_name)
+);
+CREATE TABLE IF NOT EXISTS Tool(
+    Tool_name TEXT NOT NULL, --Tool
+    proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
+    primary key (Tool_name)
+);
+CREATE TABLE IF NOT EXISTS OS(
+    OS TEXT NOT NULL, --OS
+    proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
+    primary key (OS)
+);
+CREATE TABLE IF NOT EXISTS Book(
+    title TEXT NOT NULL, --title
+    authors TEXT NOT NULL, --authors
+    tool TEXT NOT NULL, --tool
+    link TEXT NOT NULL, --link
+    primary key (title, authors)
+);
 --INSERT DATA
 --=======================
 begin transaction;
@@ -294,22 +317,11 @@ insert or replace into Experience(job_title, date_start, date_end, work_location
 values(
     'Engineer Co-op',
     'Jan 2019',
-    'Aug 2019',
-    'Gemalto, Ottawa, Ontario, Canada',
-    "The position of Engineer Co-op is to develop or maintain solutions that will be used by other coworkers to assist or improve current or future projects. Many of these projects involves making tools for IP migration.",
-    "Create/Clone VMs for other users, or to install tools onto the VMs>>>Create a DNS and DHCP server out of Windows Server 2016 to assit with the IP magration and provide a tool for simpler changes to anb asset's IP>>>Develop an online form for users to submit a list of their assets>>>Maintain a website for data reports regarding appliances>>>Implement a blog for the Lab management team as a change log for appliances",
-    'VM Ware, Windows, Linux, HTML, CSS, JS, SQL, PHP',
-    null
-);
-insert or replace into Experience(job_title, date_start, date_end, work_location, job_description, duties, tools, links)
-values(
-    'Engineer Co-op',
-    'Sept 2019',
     'Dec 2019',
-    'Thales, Ottawa, Ontario, Canada',
-    "Work with the software side of one of the company's product, a G7. Mainly focus on the G7's interaction with a smartcard.",
-    "Implement features for smartcard interaction with G7>>>Fix bugs that affects either the GUI or process",
-    'C, C++, VS Code, Qt',
+    'Gemalto - Thales, Ottawa, Ontario, Canada',
+    "The position of Engineer Co-op is to develop or maintain solutions that will be used by other coworkers to assist or improve current or future projects. Many of these projects involves making tools for IP migration. Also work with the software side of one of the company's product, a G7. Mainly focus on the G7's interaction with a smartcard.",
+    "Create/Clone VMs for other users, or to install tools onto the VMs>>>Create a DNS and DHCP server out of Windows Server 2016 to assit with the IP magration and provide a tool for simpler changes to anb asset's IP>>>Develop an online form for users to submit a list of their assets>>>Maintain a website for data reports regarding appliances>>>Implement a blog for the Lab management team as a change log for appliances>>>Implement features for smartcard interaction with G7>>>Fix bugs that affects either the GUI or process",
+    'C, C++, VS Code, Qt, VM Ware, Windows, Linux, HTML, CSS, JS, SQL, PHP',
     null
 );
 --Courses
@@ -536,6 +548,286 @@ values(
     'The Software Economy and Project Management [SYSC 4106]',
     null,
     "Introduction to software project management and economics+++Return on software investments+++Software life cycle+++Work breakdown structure, scheduling and planning+++Risk analysis and management+++Product size and cost estimation+++Earn value management+++Statistical process control+++Managing project team and process improvement+++Bidding and contract types."
+);
+insert or replace into Education(term, course_name, grade, course_objective)
+values(
+    'Winter 2020 (Dec - Apr)',
+    'Human Computer Interaction [COMP 3008]',
+    null,
+    "Fundamentals of the underlying theories, design principles, development and evaluation practices of human-computer interaction(HCI).Topics may include: theories of interaction, user interface frameworks, desktop, web, mobile, and immersive applications, usability inspection and testing methods, and qualitative and quantitative approaches to HCI research."
+);
+-- Skills
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'Java',
+    '3',
+    "Intermediate"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'HTML5',
+    '5',
+    "Expert"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'CSS3',
+    '5',
+    "Expert"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'JavaScript',
+    '3',
+    "Intermediate"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'Python',
+    '6',
+    "Intermediate"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'C++',
+    '2',
+    "Novice"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'C',
+    '2',
+    "Novice"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'SQLite',
+    '2',
+    "Intermediate"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'Postgresql',
+    '0.5',
+    "Novice"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'PHP',
+    '1',
+    "Novice"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'Node.js',
+    '1',
+    "Novice"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'C#',
+    '0.5',
+    "Novice"
+);
+insert or replace into Skill(language_name, year_experience, skill_level)
+values(
+    'Ansible',
+    '0.5',
+    "Novice"
+);
+--Tools
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Git',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Visual Studio',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Bootstrap',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'jQuery',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'VM ware',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Virtual Box',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'UML',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Bash Scripting',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Raspberry Pi',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Jinja',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'JUnit',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'JSON',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'XML',
+    1
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'TCP/IP protocols',
+    2
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Arduino',
+    2
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'JIRA',
+    2
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Flask',
+    2
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'SQLAlchemy',
+    2
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Pandas',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Vue Js',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'SVN',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Angular Js',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'React Js',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Android Studio',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Qt',
+    3
+);
+--OS
+insert or replace into OS(OS, proficient_level)
+values(
+    'Windows 10',
+    1
+);
+insert or replace into OS(OS, proficient_level)
+values(
+    'CentOS 7',
+    1
+);
+insert or replace into OS(OS, proficient_level)
+values(
+    'MintOS',
+    1
+);
+insert or replace into OS(OS, proficient_level)
+values(
+    'Raspbian',
+    1
+);
+insert or replace into OS(OS, proficient_level)
+values(
+    'Windows Server 2016',
+    2
+);
+insert or replace into OS(OS, proficient_level)
+values(
+    'Windows Server 2019',
+    2
+);
+insert or replace into OS(OS, proficient_level)
+values(
+    'Manjaro',
+    3
+);
+insert or replace into OS(OS, proficient_level)
+values(
+    'Mx Linux',
+    3
+);
+insert or replace into OS(OS, proficient_level)
+values(
+    'Chrome OS',
+    2
+);
+--Books
+insert or replace into Book(title, authors, tool, link)
+values(
+    'Mastering Python',
+    'Rick van Hattem',
+    'Python',
+    'https://www.packtpub.com/application-development/mastering-python'
+);
+insert or replace into Book(title, authors, tool, link)
+values(
+    'Learning Python',
+    'Fabrizio Romano',
+    'Python',
+    'https://www.packtpub.com/application-development/learning-python'
+);
+insert or replace into Book(title, authors, tool, link)
+values(
+    'Cybersecurity - Attack and Defense Strategies',
+    'Yuri Diogenes, Erdal Ozkaya',
+    'Cybersecurity',
+    'https://www.packtpub.com/networking-and-servers/cybersecurity-attack-and-defense-strategies'
 );
 --Placeholder
 end transaction;
