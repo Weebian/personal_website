@@ -9,7 +9,9 @@ DROP TABLE IF EXISTS Experience;
 DROP TABLE IF EXISTS Education;
 DROP TABLE IF EXISTS Skill;
 DROP TABLE IF EXISTS Tool;
+DROP TABLE IF EXISTS Editor;
 DROP TABLE IF EXISTS OS;
+DROP TABLE IF EXISTS Book;
 
 --CREATE DATABASE TABLES
 --=======================
@@ -54,6 +56,11 @@ CREATE TABLE IF NOT EXISTS Tool(
     Tool_name TEXT NOT NULL, --Tool
     proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
     primary key (Tool_name)
+);
+CREATE TABLE IF NOT EXISTS Editor(
+    editor_name TEXT NOT NULL, --title
+    proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
+    primary key (editor_name)
 );
 CREATE TABLE IF NOT EXISTS OS(
     OS TEXT NOT NULL, --OS
@@ -273,9 +280,9 @@ values(
     null,
     'Independent Project',
     'On-going',
-    "Current website created to help represent my skills and qualities. Hosted on a Raspberry PI and ran using Flask",
+    "Current website created to help represent my skills and qualities. Hosted on a Pythonanywhere and ran using Flask. Doamin is obtained from Sibername where I reroute the domain by modifying the CNAME in the DNS.",
     "Reinforce understanding of W3C Guidelines>>>Improve skills with HTML5, CSS, and JS>>>Learn the usage of JS framworks with Vue JS>>>Further understanding of backend programming using Python, Flask, and SQLAlchemy",
-    'HTML5, CSS, JS, Bootstrap, Font Awesome, GitHub Pages, Vue JS, Python, Flask, SQLAlchemy, SQLite, Raspberry Pi, Raspbian',
+    'HTML5, CSS, JS, Bootstrap, Font Awesome, Vue JS, Python, Flask, SQLAlchemy, SQLite, Raspberry Pi, Raspbian, PythonAnywhere',
     null,
     'https://github.com/Weebian/personal_website'
 );
@@ -643,11 +650,6 @@ values(
 );
 insert or replace into Tool(Tool_name, proficient_level)
 values(
-    'Visual Studio',
-    1
-);
-insert or replace into Tool(Tool_name, proficient_level)
-values(
     'Bootstrap',
     1
 );
@@ -759,6 +761,37 @@ values(
 insert or replace into Tool(Tool_name, proficient_level)
 values(
     'Qt',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Crafter CRM',
+    2
+);
+--Editors
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'VS Code',
+    1
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Eclipse',
+    1
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Notepad++',
+    2
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Atom',
+    2
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Microsoft Visual Studio',
     3
 );
 --OS
