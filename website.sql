@@ -9,7 +9,9 @@ DROP TABLE IF EXISTS Experience;
 DROP TABLE IF EXISTS Education;
 DROP TABLE IF EXISTS Skill;
 DROP TABLE IF EXISTS Tool;
+DROP TABLE IF EXISTS Editor;
 DROP TABLE IF EXISTS OS;
+DROP TABLE IF EXISTS Book;
 
 --CREATE DATABASE TABLES
 --=======================
@@ -54,6 +56,11 @@ CREATE TABLE IF NOT EXISTS Tool(
     Tool_name TEXT NOT NULL, --Tool
     proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
     primary key (Tool_name)
+);
+CREATE TABLE IF NOT EXISTS Editor(
+    editor_name TEXT NOT NULL, --title
+    proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
+    primary key (editor_name)
 );
 CREATE TABLE IF NOT EXISTS OS(
     OS TEXT NOT NULL, --OS
@@ -643,11 +650,6 @@ values(
 );
 insert or replace into Tool(Tool_name, proficient_level)
 values(
-    'Visual Studio',
-    1
-);
-insert or replace into Tool(Tool_name, proficient_level)
-values(
     'Bootstrap',
     1
 );
@@ -759,6 +761,32 @@ values(
 insert or replace into Tool(Tool_name, proficient_level)
 values(
     'Qt',
+    3
+);
+--Editors
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'VS Code',
+    1
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Eclipse',
+    1
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Notepad++',
+    2
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Atom',
+    2
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Microsoft Visual Studio',
     3
 );
 --OS

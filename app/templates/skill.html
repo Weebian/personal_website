@@ -69,6 +69,38 @@
             {% endfor %}
         </table>
     </div>
+    <!--Editors-->
+    <h4 style="margin: 15px 0 5px 0; margin-left: 1.5%;">IDE/Text Editor:</h4>
+    <div style="width:30%; display: inline-block; margin-left: 1.5%;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in proficient_editor %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="width:30%; display: inline-block;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Somewhat proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in somewhat_proficient_editor %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="width:30%; display: inline-block;">
+        <h5 style='margin-bottom:5px; text-decoration: underline;'>Non-proficient:</h5>
+        <table style='border: none;'>
+            {% for tool in non_proficient_editor %}
+            <tr style='border: none;'>
+                <td>{{ tool }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
     <!--OS-->
     <h4 style="margin: 15px 0 5px 0; margin-left: 1.5%;">Operating System:</h4>
     <div style="width:30%; display: inline-block; margin-left: 1.5%;">
