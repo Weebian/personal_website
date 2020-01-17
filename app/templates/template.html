@@ -40,7 +40,7 @@
 <body>
     <nav class="navBar">
         <a href="/" style='font-size:24px;' class="name active">Hoang Xuan Bui</a>
-        <button class="menuButton btn" type="button"><i class="fas fa-bars"></i></button>
+        <button class="menuButton btn" type="button" v-on:click="clicked()"><i class="fas fa-bars"></i></button>
         <div class="menuItems">
             <a href="/" class="{% if 'Home' in title %} active {% endif %}">Home</a>
             <a href="/experience" class="{% if 'Experience' in title %} active {% endif %}">Work Experience</a>

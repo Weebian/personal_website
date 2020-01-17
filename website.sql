@@ -9,7 +9,9 @@ DROP TABLE IF EXISTS Experience;
 DROP TABLE IF EXISTS Education;
 DROP TABLE IF EXISTS Skill;
 DROP TABLE IF EXISTS Tool;
+DROP TABLE IF EXISTS Editor;
 DROP TABLE IF EXISTS OS;
+DROP TABLE IF EXISTS Book;
 
 --CREATE DATABASE TABLES
 --=======================
@@ -55,6 +57,11 @@ CREATE TABLE IF NOT EXISTS Tool(
     proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
     primary key (Tool_name)
 );
+CREATE TABLE IF NOT EXISTS Editor(
+    editor_name TEXT NOT NULL, --title
+    proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
+    primary key (editor_name)
+);
 CREATE TABLE IF NOT EXISTS OS(
     OS TEXT NOT NULL, --OS
     proficient_level INTEGER NOT NULL, --proficiency level from 1-3 1 being proficient
@@ -78,7 +85,7 @@ values(
     null,
     "Independent Project",
     "Complete",
-    "A bot that is designed to manuver through a maze using light sensors. Also added new feature where the bot will interact with a wii nunchuck's tilt controls to move",
+    "A bot that is designed to maneuver through a maze using light sensors. Also added new feature where the bot will interact with a wii nunchuck's tilt controls to move",
     'Learn how to work with arduinos>>>Develope understanding of software interacting with hardware',
     'C, C++, Arduino Uno board, Arduino bot kit, Wii nunchuck',
     'arduino_bot_1.jpg, arduino_bot_2.jpg, arduino_bot_3.jpg, arduino_bot_4.jpg, arduino_bot_5.jpg',
@@ -92,8 +99,8 @@ values(
     'Group Project',
     'Complete',
     "A web page that generate facts based on the amount of time measured by a timer.",
-    'Learn how to create a webpage with HTML & CSS>>>Implement a timer>>>Generate facts',
-    'HTML, CSS, JS',
+    'Learn how to create a webpage with HTM5 & CSS3>>>Implement a timer>>>Generate facts',
+    'HTML5, CSS3, JS',
     'time_is_knowledge_1.PNG, time_is_knowledge_2.PNG',
     'https://github.com/dershao/TimeIsKnowledge'
     );
@@ -142,10 +149,10 @@ values(
     '2018',
     null,
     'Group Project',
-    'Copmplete',
+    'Complete',
     "A web/windows application to assist people with depression.",
-    'Take a picture, using the pc’s webcam, and analyze the image to determine the user’s mood>>>Further improved the application by creating a private chat room to interact with other people to consult and share experiences>>>Improve technical skills of HTML, CSS, JS to further improve future web applications',
-    'HTML5, CSS, JS, Python, Indico API, OpenCV',
+    'Take a picture, using the pc’s webcam, and analyze the image to determine the user’s mood>>>Further improved the application by creating a private chat room to interact with other people to consult and share experiences>>>Improve technical skills of HTML5, CSS3, JS to further improve future web applications',
+    'HTML5, CSS3, JS, Python, Indico API, OpenCV',
     null,
     'https://github.com/gitoutplayed/Cuhacking2018'
     );
@@ -156,7 +163,7 @@ values(
     null,
     'Individual Project',
     'Complete',
-    "A python script to assit in finding files with a specified keyword.",
+    "A python script to assist in finding files with a specified keyword.",
     "Find files with a similar keyword>>>Practice using python's ability to traverse through directories>>>Improve coding proficiency of using python",
     'Python',
     'file_searcher.PNG',
@@ -195,7 +202,7 @@ values(
     null,
     'Group Project',
     'Complete',
-    "For UOttaHack2019, the team created a program to assist in otaining data on drivers; detect the direct of where your eyes are looking, your current facial expression, and object detection of what's on the road.",
+    "For UOttaHack2019, the team created a program to assist in obtaining data on drivers; detect the direction of where your eyes are looking, your current facial expression, and object detection of what's on the road.",
     "Improve coding proficiency using python>>>Learn new tools and techniques",
     'Python, Pygaze, Pygame, OpenCV',
     null,
@@ -210,7 +217,7 @@ values(
     'Complete',
     "A python script that prints out the rates of item drops from Granblue Fantasy.",
     "Practice parsing through XML files>>>Practice using python's ability to traverse through XML using xml.etree.ElementTree>>>Improve coding proficiency of using python",
-    'Python',
+    'Python, XML',
     'gbf_rate_finder.PNG',
     'https://github.com/Weebian/Granblue-Fantasy-Rate-finder'
     );
@@ -222,8 +229,8 @@ values(
     'Independent Project',
     'Complete',
     "A website to calculate the number of draws required to spark in granblue fantasy.",
-    "Improve skills with HTML5, CSS, and JS>>>Experiment with AngularJS",
-    'HTML5, CSS, JS, AngularJS, Bootstrap, Font Awesome',
+    "Improve skills with HTML5, CSS3, and JS>>>Experiment with AngularJS",
+    'HTML5, CSS3, JS, AngularJS, Bootstrap, Font Awesome',
     'gbf_calc_1.PNG, gbf_calc_2.PNG',
     'https://github.com/Weebian/Gbf-Spark-Calculator'
     );
@@ -235,8 +242,8 @@ values(
     'Independent Project',
     'Complete',
     "Original website created to help represent my skills and qualities. Is currently left online to help others learn front-end web development.",
-    "Reinforce understanding of W3C Guidelines>>>Improve skills with HTML5, CSS, and JS>>>Further understanding of JQuery",
-    'HTML5, CSS, JS, JQuery, Bootstrap, Font Awesome, GitHub Pages',
+    "Reinforce understanding of W3C Guidelines>>>Improve skills with HTML5, CSS3, and JS>>>Further understanding of JQuery",
+    'HTML5, CSS3, JS, JQuery, Bootstrap, Font Awesome, GitHub Pages',
     'personal_website_front_end.PNG',
     'weebian.github.io/, https://github.com/Weebian/weebian.github.io'
 );
@@ -247,9 +254,9 @@ values(
     null,
     'Independent Project',
     'On-going',
-    "Discord is a webapp that uses Eletron. By using BetterDiscord JS, we can implement our own CSS file to restyle the UI",
-    "Practice CSS skills>>>Improve debugging skills",
-    'CSS',
+    "Discord is a webapp that uses Eletron. By using BetterDiscord JS, we can implement our own CSS3 file to restyle the UI",
+    "Practice CSS3 skills>>>Improve debugging skills",
+    'CSS3',
     'discord_theme_1.PNG, discord_theme_2.PNG',
     null
 );
@@ -273,9 +280,9 @@ values(
     null,
     'Independent Project',
     'On-going',
-    "Current website created to help represent my skills and qualities. Hosted on a Raspberry PI and ran using Flask",
-    "Reinforce understanding of W3C Guidelines>>>Improve skills with HTML5, CSS, and JS>>>Learn the usage of JS framworks with Vue JS>>>Further understanding of backend programming using Python, Flask, and SQLAlchemy",
-    'HTML5, CSS, JS, Bootstrap, Font Awesome, GitHub Pages, Vue JS, Python, Flask, SQLAlchemy, SQLite, Raspberry Pi, Raspbian',
+    "Current website created to help represent my skills and qualities. Hosted on a Pythonanywhere and ran using Flask. Domain is obtained from Sibername where I reroute the domain by modifying the CNAME in the DNS.",
+    "Reinforce understanding of W3C Guidelines>>>Improve skills with HTML5, CSS3, and JS>>>Learn the usage of JS framworks with Vue JS>>>Further understanding of backend programming using Python, Flask, and SQLAlchemy",
+    'HTML5, CSS3, JS, Bootstrap, Font Awesome, Vue JS, Python, Flask, SQLAlchemy, SQLite, Raspberry Pi, Raspbian, PythonAnywhere, KiTTY, PuTTY',
     null,
     'https://github.com/Weebian/personal_website'
 );
@@ -318,10 +325,10 @@ values(
     'Engineer Co-op',
     'Jan 2019',
     'Dec 2019',
-    'Gemalto - Thales, Ottawa, Ontario, Canada',
+    'Gemalto - Thales Group, Ottawa, Ontario, Canada',
     "The position of Engineer Co-op is to develop or maintain solutions that will be used by other coworkers to assist or improve current or future projects. Many of these projects involves making tools for IP migration. Also work with the software side of one of the company's product, a G7. Mainly focus on the G7's interaction with a smartcard.",
-    "Create/Clone VMs for other users, or to install tools onto the VMs>>>Create a DNS and DHCP server out of Windows Server 2016 to assit with the IP magration and provide a tool for simpler changes to anb asset's IP>>>Develop an online form for users to submit a list of their assets>>>Maintain a website for data reports regarding appliances>>>Implement a blog for the Lab management team as a change log for appliances>>>Implement features for smartcard interaction with G7>>>Fix bugs that affects either the GUI or process",
-    'C, C++, VS Code, Qt, VM Ware, Windows, Linux, HTML, CSS, JS, SQL, PHP',
+    "Scripted Ansible scripts for hardening devices and VMs that hosted CentOS7>>>Create/Clone VMs for other users, or to install tools onto the VMs>>>Create a DNS and DHCP server out of Windows Server 2016 to assist with the IP migration and provide a tool for simpler changes to an asset's IP>>>Develop an online form for users to submit a list of their assets>>>Scripted bash scripts to automate the process to run internal applications for development>>>Maintain and re-design a website for data reports regarding appliances>>>Implement a blog for the Lab management team as a change log for appliances>>>Identify TCP/IP ports required for lab management tools>>>Implement features for smartcard interaction with G7>>>Fix bugs that affects either the GUI or process",
+    'Ansible, Bash, C, C++, VS Code, Qt, VM Ware, Windows, CentOS7, HTML5, CSS3, JS, PostgreSQL, PHP, Python, Flask, SQLAlchemy, Pandas, Git review, Git, KiTTY, PuTTY',
     null
 );
 --Courses
@@ -643,11 +650,6 @@ values(
 );
 insert or replace into Tool(Tool_name, proficient_level)
 values(
-    'Visual Studio',
-    1
-);
-insert or replace into Tool(Tool_name, proficient_level)
-values(
     'Bootstrap',
     1
 );
@@ -759,6 +761,62 @@ values(
 insert or replace into Tool(Tool_name, proficient_level)
 values(
     'Qt',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Crafter CRM',
+    2
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'GNU Make',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Wireshark',
+    3
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'PuTTY',
+    2
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'KiTTY',
+    2
+);
+insert or replace into Tool(Tool_name, proficient_level)
+values(
+    'Git review',
+    1
+);
+--Editors
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'VS Code',
+    1
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Eclipse',
+    1
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Notepad++',
+    2
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Atom',
+    2
+);
+insert or replace into Editor(editor_name, proficient_level)
+values(
+    'Microsoft Visual Studio',
     3
 );
 --OS

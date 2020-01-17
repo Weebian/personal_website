@@ -1,23 +1,3 @@
-/**$(function () {
-    $('#app').html('<h2>hi</h2>');
-    //Menu stuff
-    $(".menuButton").click(function () {
-        if ($('.menuItems').is(':hidden')) {
-            $('.menuItems').show();
-        }
-        else {
-            $('.menuItems').hide();
-        }
-    });
-
-    $(window).resize(function () {
-        if ($(window).width() > 760) {
-            $('.menuItems').show();
-            $('.menuItems').css('display', 'inline');
-        }
-    });
-});
-*/
 //Jump
 const jump = new Vue({
     el: '#jump',
@@ -126,3 +106,31 @@ function filter_check(filters, tools, filter_type){
     };
 };
 
+// Menu button for mobile
+const menu_button = new Vue({
+    el: '.menuButton',
+    methods: {
+        clicked: function(){
+            // 
+            $(function () {
+                //Menu stuff
+                var target = document.getElementsByClassName("menuItems")[0];
+                
+                if(target.style.display == "none" || target.style.display == ""){
+                    target.style.display = "inline";
+                }
+                else{
+                    target.style.display = "none";
+                }
+            });
+        }
+    }
+})
+
+//When window resizes
+function reportWindowSize() {
+    if((document.getElementsByClassName("menuButton")[0].style.display == "none" || document.getElementsByClassName("menuButton")[0].style.display == "") && window.innerWidth > 760){
+        document.getElementsByClassName("menuItems")[0].style.display = "inline";
+    }
+}
+window.addEventListener('resize', reportWindowSize);

@@ -170,13 +170,13 @@ ul{
     width: 100px;
     display: inline-block;
     margin: 10px;
+    background: #253237;
 }
 .contactBox:hover{
-    border: 1px solid #253237;
+    border: 1px solid #9DB4C0;
     padding: 10px 15px;
-    background: #253237;
+    background: #9DB4C0;
     color: #E0FBFC;
-    
 }
 .date{
     text-align: center;

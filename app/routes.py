@@ -12,6 +12,7 @@ experience_table = Base.classes.Experience
 education_table = Base.classes.Education
 skill_table = Base.classes.Skill
 tool_table = Base.classes.Tool
+editor_table = Base.classes.Editor
 OS_table = Base.classes.OS
 book_table = Base.classes.Book
 
@@ -142,6 +143,7 @@ def skill_page():
     #Obtain all values
     skills = db.session.query(skill_table).all()
     tools = db.session.query(tool_table).all()
+    editors = db.session.query(editor_table).all()
     OSs = db.session.query(OS_table).all()
     
     #Skill's table
@@ -158,6 +160,11 @@ def skill_page():
     somewhat_proficient_tool = sorted([tool.Tool_name for tool in tools if tool.proficient_level == 2])
     non_proficient_tool = sorted([tool.Tool_name for tool in tools if tool.proficient_level == 3])
 
+    #Editors
+    proficient_editor = sorted([editor.editor_name for editor in editors if editor.proficient_level == 1])
+    somewhat_proficient_editor = sorted([editor.editor_name for editor in editors if editor.proficient_level == 2])
+    non_proficient_editor = sorted([editor.editor_name for editor in editors if editor.proficient_level == 3])
+
     #OS
     proficient_OS = sorted([OS.OS for OS in OSs if OS.proficient_level == 1])
     somewhat_proficient_OS = sorted([OS.OS for OS in OSs if OS.proficient_level == 2])
@@ -172,6 +179,9 @@ def skill_page():
         proficient_tool=proficient_tool,
         somewhat_proficient_tool=somewhat_proficient_tool,
         non_proficient_tool=non_proficient_tool,
+        proficient_editor=proficient_editor,
+        somewhat_proficient_editor=somewhat_proficient_editor,
+        non_proficient_editor=non_proficient_editor,
         proficient_OS=proficient_OS,
         somewhat_proficient_OS=somewhat_proficient_OS,
         non_proficient_OS=non_proficient_OS
